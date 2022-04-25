@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>PE Hangman</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html ng-app><head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.26/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+
+
+  </head>
+  
+  <body ng-controller="hangmanController">
+    
+    <div class="container">
+
+    </div>
+    <img src="https://www.taylorfrancis.com/assets/img/ubx-logo.svg"></img>
+    <br/>
+    <br/>
+    
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <img class="hangman-image" src="./hang-man.png"></img>
+        </div>
+        <div class="col">
+          <h1>Hangman - PE Team version 1.0</h1>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container-fluid p-3">
+      <div class="well game-box">
+        <div class="secretWord custom-font">
+          <ul class="list-inline">
+            <li ng-repeat="letter in secretWord">
+              <span ng-hide="letter.chosen">_</span>
+              <span ng-show="letter.chosen">{{ letter.name }}</span>
+            </li>
+          </ul>
+          
+          <div class="letters">
+            <ul class="list-inline">
+              <li ng-repeat="letter in letters">
+                <button class="btn letter-button"
+                        ng-disabled="letter.chosen"
+                        ng-click="try(letter);">{{letter.name}}</button>
+              </li>
+            </ul>
+          </div>
+          
+          <p>
+            <span class = "custom-font" ng-hide="win || lost"><strong>You have {{ missesAllowed - numMisses }} guesses remaining.</strong>You have {{ missesAllowed - numMisses }} guesses remaining.</span>
+            <span class = "custom-font"  ng-show="win">Well done!</span>
+            <span class = "custom-font" ng-show="lost">Sorry, please try again!</span>
+          </p>
+        </div>
+      </div>
+    </div>
+      
+    <button ng-click="reset();" class="btn btn-primary custom-button-font btn-large">New Game</button>
+  </body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
