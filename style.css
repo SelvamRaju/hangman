@@ -29,6 +29,11 @@ h1 {
   
 }
 
+.custom-font-white {
+  font-family: 'Rubik Microbe', cursive;
+  color: greenyellow;
+}
+
 .game-box {
   background-color: #85b1ff;
 }
@@ -43,3 +48,13 @@ h1 {
   padding: 20px;
   background-color: #85b1ff;
 }
+
+#hintdiv {
+  display: none;
+}
+
+#hintdiv.visible {
+  display: block;
+}
+
+
